@@ -1,0 +1,19 @@
+{
+  "name": "carriage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xanister/carriage.git"
+  },
+  "author": "Nicholas Frees",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xanister/carriage/issues"
+  },
+  "homepage": "https://github.com/xanister/carriage#readme"
+}
