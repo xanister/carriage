@@ -1,4 +1,4 @@
-export default class Carriage extends EventDispatcher {
+export default class Carriage {
   constructor() {
     this.keyboard = {};
 
