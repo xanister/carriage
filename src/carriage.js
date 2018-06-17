@@ -15,6 +15,6 @@ export default class Carriage {
   }
 
   _handleKeyup(e) {
-    this.keyboard[e.key] = true;
+    this.keyboard[e.key] = false;
   }
 }
