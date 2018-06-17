@@ -12,23 +12,9 @@ export default class Carriage {
 
   _handleKeydown(e) {
     this.keyboard[e.key] = true;
-
-    this.dispatchEvent(new CustomEvent('carriage:keydown', { 
-      detail: e.key, 
-      state: { 
-        keyboard: this.keyboard 
-      }
-    }));
   }
 
   _handleKeyup(e) {
-    this.keyboard[e.key] = false;
-
-    this.dispatchEvent(new CustomEvent('carriage:keyup', { 
-      detail: e.key, 
-      state: { 
-        keyboard: this.keyboard 
-      }
-    }));
+    this.keyboard[e.key] = true;
   }
 }

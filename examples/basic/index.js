@@ -1,8 +1,9 @@
 import Carriage from "carriage";
 
-let c = new Carriage();
+let c = new Carriage(),
+  notice = document.createElement("span");
 
-c.addEventListener("carriage:keydown", e => console.log(e));
+window.setInterval(() => notice.innerHTML = Object.keys(c.keyboard).map(k => `${k} -> ${c.keyboard[k]}`))
 
 // For debugging
 window.c = c;
