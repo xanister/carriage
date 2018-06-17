@@ -1,6 +1,7 @@
 export default class Carriage {
   constructor() {
     this.keyboard = {};
+    this.mouse = {};
 
     this._bindEvents();
   }
@@ -16,5 +17,12 @@ export default class Carriage {
 
   _handleKeyup(e) {
     this.keyboard[e.key] = false;
+  }
+
+  serialize() {
+    return {
+      keyboard: this.keyboard,
+      mouse: this.mouse
+    };
   }
 }
