@@ -1,5 +1,6 @@
 export default class Carriage {
   constructor(opts = {}) {
+    this.gamepad = null
     this.keyboard = {};
     this.mouse = {};
 
@@ -11,6 +12,22 @@ export default class Carriage {
   _bindEvents() {
     window.addEventListener("keydown", this._handleKeydown.bind(this));
     window.addEventListener("keyup", this._handleKeyup.bind(this));
+    window.addEventListener("gamepadconnected", ({ gamepad }) => {
+      console.log('gamepad connected')
+      // this.gamepad = gamepad
+      this.onInputUpdate(this.serialize());
+    });
+    window.addEventListener("gamepaddisconnected", ({ gamepad }) => {
+      console.log('gamepad disconnected')
+      // this.gamepad = null
+      this.onInputUpdate(this.serialize());
+    });
+    const updateGamepads = () => {
+      this.gamepad = navigator.getGamepads()[0]
+      this.onInputUpdate(this.serialize());
+      window.requestAnimationFrame(updateGamepads)
+    }
+    updateGamepads()
   }
 
   _handleKeydown(e) {
@@ -25,6 +42,7 @@ export default class Carriage {
 
   serialize() {
     return {
+      gamepad: this.gamepad,
       keyboard: this.keyboard,
       mouse: this.mouse
     };
